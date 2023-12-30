@@ -1,0 +1,2 @@
+# heatmap
+🔥 Heatmap component
