@@ -1,0 +1,26 @@
+{
+  "name": "@react-sandbox/heatmap",
+  "version": "1.0.0",
+  "description": "Heatmap component",
+  "author": "William Grosset (https://williamgrosset.com)",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf ./dist",
+    "prepublish": "pnpm clean && pnpm build"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
+  }
+}
