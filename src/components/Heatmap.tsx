@@ -18,13 +18,9 @@ const Heatmap: React.FC<HeatmapProps> = ({
   className,
   style
 }) => {
-  console.log(values)
-
   const renderYear = (startDate: Date): JSX.Element[] => {
     const days = generateDays(startDate, values)
     const weeks = generateWeeks(days)
-    console.log('days', days)
-    console.log('weeks', weeks)
 
     return weeks.map((week, index) => renderWeek(week, index))
   }
@@ -70,7 +66,7 @@ const Heatmap: React.FC<HeatmapProps> = ({
   return (
     <svg
       data-sandbox-heatmap
-      viewBox={`0 0 635 82`}
+      viewBox={`0 0 636 82`}
       className={className}
       style={style}
     >
