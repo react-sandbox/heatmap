@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Heatmap from '@react-sandbox/heatmap'
+import { values } from '@/lib/data'
 
 export default function Home() {
   return (
@@ -11,20 +12,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <Heatmap
-          startDate={new Date('2022-11-23')}
-          values={[
-            { date: '2023-02-01', count: 12 },
-            { date: '2023-02-18', count: 44 },
-            { date: '2023-04-15', count: 38 },
-            { date: '2023-06-02', count: 14 },
-            { date: '2023-08-02', count: 5 },
-            { date: '2023-09-09', count: 100 },
-            { date: '2023-11-12', count: 2 },
-            { date: '2023-12-24', count: 14 },
-            { date: '2023-12-25', count: 29 }
-          ]}
-        />
+        <div style={{ width: '100%' }}>
+          <Heatmap
+            startDate={new Date('2022-12-30T00:00:00')}
+            values={values}
+            scaleFactor={35}
+          />
+        </div>
       </main>
     </>
   )
