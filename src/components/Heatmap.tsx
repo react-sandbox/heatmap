@@ -20,7 +20,7 @@ const Heatmap: React.FC<HeatmapProps> = ({
 }) => {
   console.log(values)
 
-  const renderYear = (startDate: string): JSX.Element[] => {
+  const renderYear = (startDate: Date): JSX.Element[] => {
     const days = generateDays(startDate)
     const weeks = generateWeeks(days)
     console.log('days', days)
@@ -33,9 +33,10 @@ const Heatmap: React.FC<HeatmapProps> = ({
     return (
       <g key={weekIndex} transform={generateWeekTransform(weekIndex)}>
         {week.map(day => {
-          const coord = [0, day.date.getDay() * VERTICAL_OFFSET] as Coordinate
+          const { date, count } = day
+          const coord = [0, date.getDay() * VERTICAL_OFFSET] as Coordinate
           const color = generateCountColor(
-            day.count,
+            count,
             emptyColor,
             baseColor,
             scaleFactor

@@ -2,7 +2,7 @@ import { RGB, DateWithCount } from '../types'
 import { DAYS_IN_YEAR, SQUARE_SIZE, HORIZONTAL_GAP_SIZE } from './constants'
 
 // TODO Merge days with counts from values prop
-export function generateDays(startDate: string): DateWithCount[] {
+export function generateDays(startDate: Date): DateWithCount[] {
   const days = [] as DateWithCount[]
   const currentDate = new Date(startDate)
 

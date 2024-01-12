@@ -1,7 +1,7 @@
 import { DateWithCount, RGB } from '.'
 
 export interface HeatmapProps {
-  startDate: string
+  startDate: Date
   values: DateWithCount[]
   emptyColor?: RGB
   baseColor?: RGB

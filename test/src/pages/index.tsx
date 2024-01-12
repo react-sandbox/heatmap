@@ -12,7 +12,7 @@ export default function Home() {
 
       <main>
         <Heatmap
-          startDate="2022-11-23"
+          startDate={new Date('2022-11-23')}
           values={[
             { date: '2023-02-01', count: 12 },
             { date: '2023-02-18', count: 44 },
