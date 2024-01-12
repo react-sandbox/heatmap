@@ -1,5 +1,5 @@
 import { RGB, DateWithCount } from '../types'
-import { DAYS_IN_YEAR, SQUARE_SIZE, HORIZONTAL_GAP_SIZE } from './constants'
+import { DAYS_IN_YEAR, SQUARE_SIZE, HORIZONTAL_OFFSET } from './constants'
 
 export function generateDays(
   startDate: Date,
@@ -59,7 +59,7 @@ export function generateWeeks(days: DateWithCount[]): DateWithCount[][] {
 }
 
 export function generateWeekTransform(weekIndex: number): string {
-  return `translate(${weekIndex * (SQUARE_SIZE + HORIZONTAL_GAP_SIZE)}, 0)`
+  return `translate(${weekIndex * (SQUARE_SIZE + HORIZONTAL_OFFSET)}, 0)`
 }
 
 function convertRGBToString(rgb: RGB): string {

@@ -1,7 +1,13 @@
 import React from 'react'
 import { DateWithCount, Coordinate } from '../types'
 import { HeatmapProps } from '../types/Heatmap'
-import { SQUARE_SIZE, SQUARE_RADIUS, VERTICAL_OFFSET } from '../lib/constants'
+import {
+  SQUARE_SIZE,
+  SQUARE_RADIUS,
+  VERTICAL_OFFSET,
+  VIEWBOX_WIDTH,
+  VIEWBOX_HEIGHT
+} from '../lib/constants'
 import {
   generateDays,
   generateWeeks,
@@ -29,8 +35,10 @@ const Heatmap: React.FC<HeatmapProps> = ({
     week: DateWithCount[],
     weekIndex: number
   ): JSX.Element => {
+    const transform = generateWeekTransform(weekIndex)
+
     return (
-      <g key={weekIndex} transform={generateWeekTransform(weekIndex)}>
+      <g key={weekIndex} transform={transform}>
         {week.map(day => {
           const { date, count } = day
           const coord = [0, date.getDay() * VERTICAL_OFFSET] as Coordinate
@@ -66,7 +74,7 @@ const Heatmap: React.FC<HeatmapProps> = ({
   return (
     <svg
       data-sandbox-heatmap
-      viewBox={`0 0 636 82`}
+      viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
       className={className}
       style={style}
     >
