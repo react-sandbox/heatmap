@@ -12,7 +12,7 @@ import {
 const Heatmap: React.FC<HeatmapProps> = ({
   startDate,
   values,
-  emptyColor = [169, 169, 169],
+  emptyColor = [150, 150, 150],
   baseColor = [0, 128, 0],
   scaleFactor = 30,
   className,
