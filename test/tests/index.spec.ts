@@ -29,6 +29,12 @@ test.describe('Heatmap', () => {
         page.locator('[data-sandbox-heatmap] rect').nth(361)
       ).toHaveAttribute('fill', 'rgb(73,164,73)')
     })
+
+    test('renders 363rd day with empty color', async ({ page }) => {
+      await expect(
+        page.locator('[data-sandbox-heatmap] rect').nth(362)
+      ).toHaveAttribute('fill', 'rgb(20,30,30)')
+    })
   })
 
   test('renders with explicit viewbox', async ({ page }) => {
