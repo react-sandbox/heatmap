@@ -1,5 +1,5 @@
 import React from 'react'
-import { Coordinate } from '../types'
+import { DateWithCount, Coordinate } from '../types'
 import { HeatmapProps } from '../types/Heatmap'
 import { SQUARE_SIZE, SQUARE_RADIUS, VERTICAL_OFFSET } from '../lib/constants'
 import {
@@ -12,16 +12,16 @@ import {
 const Heatmap: React.FC<HeatmapProps> = ({
   startDate,
   values,
-  emptyColor = [150, 150, 150],
+  emptyColor = [20, 30, 30],
   baseColor = [0, 128, 0],
-  scaleFactor = 30,
+  scaleFactor = 10,
   className,
   style
 }) => {
   console.log(values)
 
   const renderYear = (startDate: Date): JSX.Element[] => {
-    const days = generateDays(startDate)
+    const days = generateDays(startDate, values)
     const weeks = generateWeeks(days)
     console.log('days', days)
     console.log('weeks', weeks)
@@ -29,7 +29,10 @@ const Heatmap: React.FC<HeatmapProps> = ({
     return weeks.map((week, index) => renderWeek(week, index))
   }
 
-  const renderWeek = (week, weekIndex: number): JSX.Element => {
+  const renderWeek = (
+    week: DateWithCount[],
+    weekIndex: number
+  ): JSX.Element => {
     return (
       <g key={weekIndex} transform={generateWeekTransform(weekIndex)}>
         {week.map(day => {

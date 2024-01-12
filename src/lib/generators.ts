@@ -1,19 +1,34 @@
 import { RGB, DateWithCount } from '../types'
 import { DAYS_IN_YEAR, SQUARE_SIZE, HORIZONTAL_GAP_SIZE } from './constants'
 
-// TODO Merge days with counts from values prop
-export function generateDays(startDate: Date): DateWithCount[] {
+export function generateDays(
+  startDate: Date,
+  values: DateWithCount[]
+): DateWithCount[] {
   const days = [] as DateWithCount[]
   const currentDate = new Date(startDate)
 
+  // Generate year from start date
   for (let i = 0; i < DAYS_IN_YEAR; i++) {
     const date = {
       date: new Date(currentDate),
-      count: Math.floor(Math.random() * 10)
+      count: 0
     }
 
     days.push(date)
     currentDate.setDate(currentDate.getDate() + 1)
+  }
+
+  // Merge values into year
+  for (const value of values) {
+    const { date, count } = value
+
+    const index = days.findIndex(day => day.date.getTime() === date.getTime())
+
+    if (index !== -1) {
+      const day = days[index]
+      days[index] = { ...day, count }
+    }
   }
 
   return days
@@ -24,11 +39,12 @@ export function generateWeeks(days: DateWithCount[]): DateWithCount[][] {
   let currentWeek = [] as DateWithCount[]
 
   days.forEach(day => {
-    const currentDay = new Date(day.date)
+    const { date, count } = day
 
-    currentWeek.push({ date: day.date, count: day.count })
+    currentWeek.push({ date, count })
 
-    if (currentDay.getDay() === 6) {
+    // Saturday marks end of week
+    if (date.getDay() === 6) {
       weeks.push([...currentWeek])
       currentWeek = []
     }
