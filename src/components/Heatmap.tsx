@@ -39,7 +39,7 @@ const Heatmap: React.FC<HeatmapProps> = ({
 
     return (
       <g key={weekIndex} transform={transform}>
-        {week.map(day => {
+        {week.map((day, index) => {
           const { date, count } = day
           const coord = [0, date.getDay() * VERTICAL_OFFSET] as Coordinate
           const color = generateCountColor(
@@ -49,17 +49,22 @@ const Heatmap: React.FC<HeatmapProps> = ({
             scaleFactor
           )
 
-          return renderDay(coord, color)
+          return renderDay(index, coord, color)
         })}
       </g>
     )
   }
 
-  const renderDay = (coord: Coordinate, color: string): JSX.Element => {
+  const renderDay = (
+    key: number,
+    coord: Coordinate,
+    color: string
+  ): JSX.Element => {
     const [x, y] = coord
 
     return (
       <rect
+        key={key}
         width={SQUARE_SIZE}
         height={SQUARE_SIZE}
         rx={SQUARE_RADIUS}
