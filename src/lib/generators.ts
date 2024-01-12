@@ -52,21 +52,18 @@ function convertRGBToString(rgb: RGB): string {
 
 export function generateCountColor(
   count: number,
-  baseColor: RGB = [0, 128, 0]
+  emptyColor: RGB,
+  baseColor: RGB,
+  scaleFactor: number
 ): string {
   if (count === 0) {
-    // TODO Add prop for 0 commmit color
-    const defaultColor = [169, 169, 169] as RGB
-
-    return convertRGBToString(defaultColor)
+    return convertRGBToString(emptyColor)
   }
 
-  // TODO Add prop for scaling factor
-  const scaleFactor = Math.min(1, count / 30)
-
-  const finalColor = baseColor.map(channel =>
-    Math.round(channel + (255 - channel) * scaleFactor)
+  const sf = Math.min(1, count / scaleFactor)
+  const color = baseColor.map(channel =>
+    Math.round(channel + (255 - channel) * sf)
   ) as RGB
 
-  return convertRGBToString(finalColor)
+  return convertRGBToString(color)
 }

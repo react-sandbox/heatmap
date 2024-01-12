@@ -1,6 +1,6 @@
 import React from 'react'
-import { HeatmapProps } from '../types/Heatmap'
 import { Coordinate } from '../types'
+import { HeatmapProps } from '../types/Heatmap'
 import { SQUARE_SIZE, SQUARE_RADIUS, VERTICAL_OFFSET } from '../lib/constants'
 import {
   generateDays,
@@ -9,7 +9,15 @@ import {
   generateCountColor
 } from '../lib/generators'
 
-const Heatmap: React.FC<HeatmapProps> = ({ startDate, values }) => {
+const Heatmap: React.FC<HeatmapProps> = ({
+  startDate,
+  values,
+  emptyColor = [169, 169, 169],
+  baseColor = [0, 128, 0],
+  scaleFactor = 30,
+  className,
+  style
+}) => {
   console.log(values)
 
   const renderYear = (startDate: string): JSX.Element[] => {
@@ -26,7 +34,12 @@ const Heatmap: React.FC<HeatmapProps> = ({ startDate, values }) => {
       <g key={weekIndex} transform={generateWeekTransform(weekIndex)}>
         {week.map(day => {
           const coord = [0, day.date.getDay() * VERTICAL_OFFSET] as Coordinate
-          const color = generateCountColor(day.count)
+          const color = generateCountColor(
+            day.count,
+            emptyColor,
+            baseColor,
+            scaleFactor
+          )
 
           return renderDay(coord, color)
         })}
@@ -51,7 +64,12 @@ const Heatmap: React.FC<HeatmapProps> = ({ startDate, values }) => {
   }
 
   return (
-    <svg data-sandbox-heatmap viewBox={`0 0 635 82`}>
+    <svg
+      data-sandbox-heatmap
+      viewBox={`0 0 635 82`}
+      className={className}
+      style={style}
+    >
       <g>{renderYear(startDate)}</g>
     </svg>
   )
