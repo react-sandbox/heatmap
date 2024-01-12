@@ -1,8 +1,24 @@
-# heatmap
+<h1 align="center">
+  @react-sandbox/heatmap
+</h1>
 
-🔥 Calendar heatmap component
+<p align="center">
+  <img src="https://img.shields.io/github/actions/workflow/status/react-sandbox/heatmap/playwright.yml" alt="Build status" />
+  <img src="https://img.shields.io/bundlephobia/minzip/@react-sandbox/heatmap?color=%234ba0f6" alt="Build size" />
+  <img src="https://img.shields.io/npm/dt/@react-sandbox/heatmap?color=%234ba0f6" alt="Package downloads" />
+</p>
 
-## Usage
+<p align="center">
+  <img src="example.png" alt="Example" />
+</p>
+
+<p align="center">
+  📅🔥 Calendar heatmap component
+</p>
+
+<p align="center">
+  Customizable SVG inspired by GitHub's contribution graph.
+</p>
 
 ### Install
 
