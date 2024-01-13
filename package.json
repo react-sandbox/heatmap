@@ -1,6 +1,6 @@
 {
   "name": "@react-sandbox/heatmap",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Calendar heatmap component",
   "author": "William Grosset (https://williamgrosset.com)",
   "license": "MIT",
