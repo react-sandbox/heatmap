@@ -12,3 +12,4 @@ export const VERTICAL_OFFSET = 12
 
 // Misc
 export const DAYS_IN_YEAR = 365
+export const OUT_OF_BOUNDS_INDEX = -1

@@ -1,5 +1,10 @@
 import { RGB, DateWithCount } from '../types'
-import { DAYS_IN_YEAR, SQUARE_SIZE, HORIZONTAL_OFFSET } from './constants'
+import {
+  DAYS_IN_YEAR,
+  OUT_OF_BOUNDS_INDEX,
+  SQUARE_SIZE,
+  HORIZONTAL_OFFSET
+} from './constants'
 
 export function generateDays(
   startDate: Date,
@@ -25,7 +30,7 @@ export function generateDays(
 
     const index = days.findIndex(day => day.date.getTime() === date.getTime())
 
-    if (index !== -1) {
+    if (index !== OUT_OF_BOUNDS_INDEX) {
       const day = days[index]
       days[index] = { ...day, count }
     }
