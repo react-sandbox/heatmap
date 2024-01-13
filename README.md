@@ -65,8 +65,8 @@ function App() {
 | ------------- | --------------------- | -------------- | ----------------------------------------------------------- |
 | `startDate`   | `Date`                | **required**   | Start date                                                  |
 | `values`      | `Array<Object>`       | **required**   | Array of values containing `date: Date` and `count: number` |
-| `emptyColor`  | `RGB Tuple`           | `[20, 30, 30]` | Color of rect with 0 `count`                                |
-| `baseColor`   | `RGB Tuple`           | `[0, 128, 0]`  | Color of rect with 1 or more `count`                        |
+| `emptyColor`  | `RGB Tuple`           | `[20, 30, 30]` | Color of day with 0 `count`                                 |
+| `baseColor`   | `RGB Tuple`           | `[0, 128, 0]`  | Color of day with 1 or more `count`                         |
 | `scaleFactor` | `number`              | `10`           | Multiplier to be used against `baseColor`                   |
 | `className`   | `string`              | `-`            | CSS classes                                                 |
 | `style`       | `React.CSSProperties` | `-`            | CSS styles                                                  |
