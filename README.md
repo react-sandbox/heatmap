@@ -1,5 +1,5 @@
 <h1 align="center">
-  @react-sandbox/heatmap
+  <a href="https://www.npmjs.com/package/@react-sandbox/heatmap">@react-sandbox/heatmap</a>
 </h1>
 
 <p align="center">
@@ -25,8 +25,15 @@
 
 Install the `@react-sandbox/heatmap` package:
 
-```
+```bash
+# npm
 npm install @react-sandbox/heatmap
+
+# yarn
+yarn add @react-sandbox/heatmap
+
+# pnpm
+pnpm add @react-sandbox/heatmap
 ```
 
 ### Import
@@ -62,15 +69,15 @@ function App() {
 
 ### Props
 
-| Prop          | Type                  | Default        | Description                                                 |
-| ------------- | --------------------- | -------------- | ----------------------------------------------------------- |
-| `startDate`   | `Date`                | **required**   | Start date                                                  |
-| `values`      | `Array<Object>`       | **required**   | Array of values containing `date: Date` and `count: number` |
-| `emptyColor`  | `RGB Tuple`           | `[20, 30, 30]` | Color of day with 0 `count`                                 |
-| `baseColor`   | `RGB Tuple`           | `[0, 128, 0]`  | Color of day with 1 or more `count`                         |
-| `scaleFactor` | `number`              | `10`           | Multiplier to be used against `baseColor`                   |
-| `className`   | `string`              | `-`            | CSS classes                                                 |
-| `style`       | `React.CSSProperties` | `-`            | CSS styles                                                  |
+| Prop          | Type                   | Default        | Description                                            |
+| ------------- | ---------------------- | -------------- | ------------------------------------------------------ |
+| `startDate`   | `Date`                 | **required**   | Start date                                             |
+| `values`      | `Array<DateWithCount>` | **required**   | Array of objects with `date: Date` and `count: number` |
+| `emptyColor`  | `RGB Tuple`            | `[20, 30, 30]` | Color of day with a `count` of 0                       |
+| `baseColor`   | `RGB Tuple`            | `[0, 128, 0]`  | Color of day with a `count` of 1 or more               |
+| `scaleFactor` | `number`               | `10`           | Multiplier that increases `baseColor` intensity        |
+| `className`   | `string`               | `-`            | CSS classes                                            |
+| `style`       | `React.CSSProperties`  | `-`            | CSS styles                                             |
 
 ## Development
 
